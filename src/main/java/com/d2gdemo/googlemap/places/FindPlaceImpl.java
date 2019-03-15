@@ -51,9 +51,9 @@ public class FindPlaceImpl implements FindPlaceObject {
 
         String prediction = EntityUtils.toString(httpResponse.getEntity());
         mapper = new ObjectMapper();
-        JsonNode node =  mapper.readTree(prediction);
+        JsonNode nodes =  mapper.readTree(prediction);
 
-        return node;
+        return nodes;
     }
 
     @Override
