@@ -2,8 +2,6 @@ package com.d2gdemo.googlemap;
 
 import com.d2gdemo.googlemap.places.FindPlaceImpl;
 import com.d2gdemo.googlemap.places.FindPlaceObject;
-import com.d2gdemo.googlemap.places.request.PlaceAutocompleteRequest;
-import com.d2gdemo.googlemap.places.request.PlaceFindByTextRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,9 +9,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @Configuration
+@EnableWebMvc
 public class GooglemapApplication {
 
     @Bean
