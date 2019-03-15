@@ -8,7 +8,7 @@ public class FindPlaceImplTest {
     @Test
     public void sendRequestAutocomplete() throws Exception {
         FindPlaceImpl findPlace = new FindPlaceImpl();
-        findPlace.setKey("AIzaSyAWUnoy9yDb5m2wgQ0Pxcx58Z6fdMIDEOc");
+        findPlace.setKey("KEY");
         JsonNode jsonNode = findPlace.getLocation("London");
         System.out.println(jsonNode.get("predictions"));
 
