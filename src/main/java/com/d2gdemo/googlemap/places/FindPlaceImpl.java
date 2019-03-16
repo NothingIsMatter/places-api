@@ -35,13 +35,11 @@ public class FindPlaceImpl implements FindPlaceObject {
 
 
     public JsonNode sendRequest(PlaceAutocompleteRequest request) throws Exception {
-        if (request.isStrictBounds())
-        builder = new URIBuilder("https://maps.googleapis.com/maps/api/place/autocomplete/json?strictbounds");
-        else builder = new URIBuilder("https://maps.googleapis.com/maps/api/place/autocomplete/json");
+         builder = new URIBuilder("https://maps.googleapis.com/maps/api/place/autocomplete/json?strictbounds");
         builder.addParameter("key", key);
         builder.addParameter("input", request.getInput());
-        if (!StringUtils.isEmpty(request.getLoc())) builder.addParameter("location", request.getLoc());
-        if (!StringUtils.isEmpty(request.getRad())) builder.addParameter("radius", request.getRad());
+        builder.addParameter("location", request.getLoc());
+        builder.addParameter("radius", request.getRad());
 
 
         getReq= new HttpGet(builder.build());
@@ -57,14 +55,11 @@ public class FindPlaceImpl implements FindPlaceObject {
     }
 
     @Override
-    public JsonNode getLocation(String input, String radius, String location) throws Exception {
-        return this.sendRequest(new PlaceAutocompleteRequest(input,radius,location,true));
+    public JsonNode getChargeStations( String radius, String location) throws Exception {
+        return this.sendRequest(new PlaceAutocompleteRequest("car charger",radius,location,true));
     }
 
-    @Override
-    public JsonNode getLocation(String input) throws Exception {
-        return sendRequest(new PlaceAutocompleteRequest(input,null,null,false));
-    }
+
 
     private class PlaceAutocompleteRequest {
         private String input;
