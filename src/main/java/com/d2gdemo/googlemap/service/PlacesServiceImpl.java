@@ -1,7 +1,8 @@
 package com.d2gdemo.googlemap.service;
 
 import com.d2gdemo.googlemap.database.ChargerDao;
-import com.d2gdemo.googlemap.dto.ChargeStation;
+
+import com.d2gdemo.googlemap.entity.ChargeStation;
 import com.d2gdemo.googlemap.places.FindPlaceObject;
 import com.d2gdemo.googlemap.places.FindRouteObject;
 import org.springframework.beans.factory.annotation.Autowired;

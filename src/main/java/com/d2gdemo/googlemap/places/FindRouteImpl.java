@@ -10,7 +10,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class FindRouteImpl implements FindRouteObject {
     private String key;
 

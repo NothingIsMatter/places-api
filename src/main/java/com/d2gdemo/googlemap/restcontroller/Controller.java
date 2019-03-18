@@ -1,10 +1,10 @@
 package com.d2gdemo.googlemap.restcontroller;
 
 
-import com.d2gdemo.googlemap.dto.ChargeStation;
+
+import com.d2gdemo.googlemap.entity.ChargeStation;
 import com.d2gdemo.googlemap.restcontroller.exception.ServerException;
 import com.d2gdemo.googlemap.service.PlacesService;
-import com.sun.xml.internal.ws.encoding.XMLHTTPBindingCodec;
 import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.Http2;

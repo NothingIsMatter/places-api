@@ -1,6 +1,7 @@
 package com.d2gdemo.googlemap.service;
 
-import com.d2gdemo.googlemap.dto.ChargeStation;
+
+import com.d2gdemo.googlemap.entity.ChargeStation;
 
 public interface PlacesService {
     boolean save(String id,String location);

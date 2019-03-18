@@ -1,6 +1,6 @@
 package com.d2gdemo.googlemap.database;
 
-import com.d2gdemo.googlemap.dto.ChargeStation;
+
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.Jedis;
 

@@ -1,4 +1,4 @@
-package com.d2gdemo.googlemap.dto;
+package com.d2gdemo.googlemap.entity;
 
 public class ChargeStation {
     private String name;
