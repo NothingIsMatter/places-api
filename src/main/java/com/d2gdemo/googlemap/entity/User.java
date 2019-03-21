@@ -18,7 +18,7 @@ public class User {
     private String name;
     @Column(name = "surname")
     private String surname;
-    @Column(name = "password")
+    @Column(name = "password",length = 500)
     private String password;
     private String location;
 
@@ -89,7 +89,7 @@ public class User {
         this.roles = roles;
     }
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles",joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();

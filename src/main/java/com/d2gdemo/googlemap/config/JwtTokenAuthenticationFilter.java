@@ -15,14 +15,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
+public class JwtTokenAuthenticationFilter  {
     private final JwtConfig jwtConfig;
 
     public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
         this.jwtConfig = jwtConfig;
     }
 
-    @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
