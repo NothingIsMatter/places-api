@@ -1,5 +1,7 @@
 package com.d2gdemo.googlemap.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -19,6 +21,7 @@ public class User {
     @Column(name = "surname")
     private String surname;
     @Column(name = "password",length = 500)
+    @JsonIgnore
     private String password;
     private String location;
 

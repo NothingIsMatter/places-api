@@ -26,7 +26,7 @@ public class Controller {
 try {
     return placesService.getChargeStations(id,radius);
 } catch (Exception ex){
-    throw new ServerException();
+    throw new ServerException("Error during getting charge stations");
 }
 
     }

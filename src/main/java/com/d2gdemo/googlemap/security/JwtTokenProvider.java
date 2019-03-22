@@ -1,11 +1,13 @@
 package com.d2gdemo.googlemap.security;
 
 import com.d2gdemo.googlemap.entity.Role;
+import com.d2gdemo.googlemap.restcontroller.exception.ServerException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,6 +37,7 @@ public class JwtTokenProvider {
     private long validityInMilliseconds = 3600000; // 1h
 
     @Autowired
+    @Qualifier("detailsService")
     private UserDetailsService myUserDetails;
 
     @PostConstruct
@@ -75,12 +78,12 @@ public class JwtTokenProvider {
         return null;
     }
 
-    public boolean validateToken(String token)  throws IllegalAccessException{
+    public boolean validateToken(String token) {
         try {
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            throw new IllegalAccessException("invalid token");
+            throw new ServerException("invalid token");
         }
     }
 

@@ -33,14 +33,14 @@ try {
   return   jwtTokenProvider.createToken(user.getLogin(),user.getRoles().stream().collect(Collectors.toList()));
 } catch (AuthenticationException ex){
 
-    throw  new ServerException();
+    throw  new ServerException("Wrong data!");
 }
 
     }
 
     public void saveUser(UserDto user) throws ServerException{
 
-        if (userDao.findByLogin(user.getUsername())!=null) throw new ServerException();
+        if (userDao.findByLogin(user.getUsername())!=null) throw new ServerException("User already exists");
         User newUser = new User();
         newUser.setId(UUID.randomUUID().toString());
         newUser.setLogin(user.getUsername());
@@ -55,6 +55,6 @@ try {
     }
 
     public User getUser(String id) throws ServerException {
-        return userDao.findById(id).orElseThrow(ServerException::new);
+        return userDao.findById(id).orElseThrow( ()->{return new ServerException("Couldnt find user with id: "+id);});
     }
 }
